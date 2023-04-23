@@ -22,3 +22,6 @@ elif operation == 'm':
 elif operation == 's':
     quotient = num1 / num2
     print(f"The quotient of {num1} & {num2} is: {quotient}")
+    
+else 
+    print("This is an invalid input!")
