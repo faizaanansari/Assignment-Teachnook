@@ -1,0 +1,24 @@
+#Faizaan Ansari calculator program
+
+num1 = int(input("Enter first Number: "))
+num2 = int(input("Enter second Number: "))
+
+print("Choose the operation to be performed: \n")
+
+operation = input("Enter the word: \n 'a' for Addition \n 's' for Subtraction \n 'm' for Multiplication \n 'd' for Division \n")
+
+if operation == 'a':
+    sum = num1 + num2
+    print(f"The sum of {num1} & {num2} is: {sum}")
+
+elif operation == 's':
+    diff = num1 - num2
+    print(f"The difference of {num1} & {num2} is: {diff}")
+
+elif operation == 'm':
+    product = num1 * num2
+    print(f"The product of {num1} & {num2} is: {product}")
+
+elif operation == 's':
+    quotient = num1 / num2
+    print(f"The quotient of {num1} & {num2} is: {quotient}")
