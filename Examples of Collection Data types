@@ -1,0 +1,25 @@
+# declaring 2 lists
+list1 = [1, 2, 3, 4, 5]
+list2 = ['apple', 'banana', 'orange']
+
+# declaring 2 tuples
+tuple1 = (1, 2, 3, 4, 5)
+tuple2 = ('apple', 'banana', 'orange')
+
+# declaring 2 sets
+set1 = {1, 2, 3, 4, 5}
+set2 = {'apple', 'banana', 'orange'}
+
+# declaring 2 dictionaries
+dict1 = {'name': 'John', 'age': 30, 'city': 'New York'}
+dict2 = {'name': 'Jane', 'age': 25, 'city': 'Los Angeles'}
+
+# printing the lists, tuples, sets, and dictionaries
+print('List 1:', list1)
+print('List 2:', list2)
+print('Tuple 1:', tuple1)
+print('Tuple 2:', tuple2)
+print('Set 1:', set1)
+print('Set 2:', set2)
+print('Dictionary 1:', dict1)
+print('Dictionary 2:', dict2)
