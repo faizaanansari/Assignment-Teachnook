@@ -1,0 +1,62 @@
+#Simple GUI based timer in python using tkinter
+
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox as msg
+
+class CountdownTimer:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Countdown Timer")
+
+        # initialize variables
+        self.seconds_left = tk.IntVar()
+        self.paused = False
+        self.running = False
+
+        # create widgets
+        self.label = ttk.Label(self.master, textvariable=self.seconds_left, font=("Helvetica", 32))
+        self.start_button = ttk.Button(self.master, text="Start", command=self.start_timer)
+        self.reset_button = ttk.Button(self.master, text="Reset", command=self.reset_timer)
+        self.pause_button = ttk.Button(self.master, text="Pause", command=self.pause_timer)
+
+        # add widgets to grid
+        self.label.grid(row=0, column=0, padx=10, pady=10)
+        self.start_button.grid(row=1, column=0, padx=10, pady=10)
+        self.reset_button.grid(row=1, column=1, padx=10, pady=10)
+        self.pause_button.grid(row=1, column=2, padx=10, pady=10)
+
+    def start_timer(self):
+        if not self.running:
+            self.seconds_left.set(60) # set timer for 60 seconds
+            self.running = True
+            self.countdown()
+        else:
+            msg.showinfo("Error", "Timer is already running.")
+
+    def countdown(self):
+        if self.seconds_left.get() == 0: # timer has ended
+            self.running = False
+            msg.showinfo("Time's Up", "The timer has ended!")
+        elif not self.paused:
+            self.seconds_left.set(self.seconds_left.get() - 1)
+            self.master.after(1000, self.countdown) # call countdown after 1 second
+
+    def reset_timer(self):
+        self.running = False
+        self.paused = False
+        self.seconds_left.set(0)
+
+    def pause_timer(self):
+        if self.running:
+            if not self.paused:
+                self.paused = True
+                self.pause_button.config(text="Resume")
+            else:
+                self.paused = False
+                self.pause_button.config(text="Pause")
+
+# create main window
+root = tk.Tk()
+timer = CountdownTimer(root)
+root.mainloop()
